@@ -8,17 +8,10 @@ pipeline {
          }
       }
 
-	stage('Docker Build'){
+	stage('Verify Branch'){
 		steps{
-			pwsh(script: 'docker images -a'
-			pwsh(script: """
-					cd azire-vote/
-					docker images -a
-					docker build -t jenkins-pipeline .
-					docker images -a
-					cd ..
-					""")
-		
+			
+			echo $GIT_BRANCH
 		}
 	}
    }
